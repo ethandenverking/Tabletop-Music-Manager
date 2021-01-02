@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tabletop Music Manager</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&family=Lato&family=Open+Sans&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div id="backWall">
+			<img src="img/brick-wall.png">
+		</div>
+		<div id="topPillar">
+			<img src="img/pillar-top.png">
+		</div>
+		<div id="leftPillar">
+			<img src="img/pillar-left.png">
+		</div>
+		<div id="rightPillar">
+			<img src="img/pillar-right.png">
+		</div>
+		
+		<div id="editor">
+			<div id="nav">
+				<table>
+					<tr>
+						<td><h1>Tabletop Music Manager</h1></td>
+						<td><input id="adventureNameInput" type="text" value="Adventure Name"></td>
+						<td><button id="saveButton">Save Adventure</button></td>
+						<td><button id="loadButton">Load Adventure</button></td>
+					</tr>
+				</table>
+			</div>
+			<div id="songManager">
+				<div id="songListContainer">
+					<div id="songList">
+					</div>
+					<div class="infoButtons">
+						<button id="newTrackButton" class="songListButton">New</button>
+						<button id="deleteButton" class="songListButton">Delete</button>
+						<button id="playButton" class="songListButton">Play</button>
+					</div>
+				</div>		
+				<div id="info">
+					<div class="infoBody">
+						<div class="dataEntryContainer">
+							<div class="imageContainer">
+								<div id="infoImage" class="infoImage"></div>
+							</div>
+							<div class="dataEntryLabelsContainer">
+								<table>
+									<tr><td>Name:</td></tr>
+									<tr><td>Code:</td></tr>
+									<tr><td>Type:</td></tr>
+									<tr><td>SubType:</td></tr>
+								</table> 
+							</div>
+							<div class="dataEntryFieldsContainer">
+								<table>
+									<tr><td><input type="text" id="nameInput" name="nameInput"></td></tr>
+									<tr><td><input type="text" id="linkInput" name="linkInput"></td></tr>
+									<tr><td>
+										<select name="types" id="types">
+											<option value="Song">Song</option>
+											<option value="Ambience">Ambience</option>
+											<option value="Sound">Sound</option>
+										</select>
+									</td></tr>
+									<tr><td>
+										<select name="subtypes" id="subtypes">
+											<option value="Default">Default</option>
+											<option value="Boss Fight">Boss Fight</option>
+											<option value="Calm">Calm</option>
+											<option value="Cheery">Cheery</option>
+											<option value="Combat">Combat</option>
+											<option value="Creepy">Creepy</option>
+											<option value="Dark">Dark</option>
+											<option value="Mysterious">Mysterious</option>
+											<option value="Mystical">Mystical</option>
+											<option value="Passive">Passive</option>
+										</select>
+									</td></tr>
+								</table> 
+							</div>
+						</div>
+						<div id="notes">
+							<h4>Notes:</h4>
+							<textarea id="notesInput"></textarea>
+						</div>
+						<div id="mixer">
+							<div class="slidecontainer">
+								<div class="slideIcon">
+									<img class='thumbnail-icon' id="songIconSlider" src='img/song-icon-empty.png'>
+								</div>
+								<div class="slideVolumeContainer">
+									<div class="titleAndSlider">
+										<input type="range" min="1" max="100" value="50" class="slider" id="songRange">
+									</div>
+								</div>
+								<div class="volumeControls">
+									<image id="songFade" src="img/fade-icon-empty.png">
+									<image id="songPause" src="img/play-icon-empty.png">
+									<image id="songLoop" src="img/loop-icon-empty.png">
+								</div>
+							</div>
+							<div class="slidecontainer">
+								<div class="slideIcon">
+									<img class='thumbnail-icon' id="ambienceIconSlider" src='img/ambience-icon-empty.png'>
+								</div>
+								<div class="slideVolumeContainer">
+									<div class="titleAndSlider">
+										<input type="range" min="1" max="100" value="50" class="slider" id="ambienceRange">
+									</div>
+								</div>
+								<div class="volumeControls">
+									<image id="ambienceFade" src="img/fade-icon-empty.png">
+									<image id="ambiencePause" src="img/play-icon-empty.png">
+									<image id="ambienceLoop" src="img/loop-icon-empty.png">
+								</div>
+							</div>
+							<div class="slidecontainer">
+								<div class="slideIcon">
+									<img class='thumbnail-icon' id="soundIconSlider" src='img/sound-icon-empty.png'>
+								</div>
+								<div class="slideVolumeContainer">
+									<div class="titleAndSlider">
+										<input type="range" min="1" max="100" value="50" class="slider" id="soundRange">
+									</div>
+								</div>
+								<div class="volumeControls">
+									<image id="soundFade" src="img/fade-icon-empty.png">
+									<image id="soundPause" src="img/play-icon-empty.png">
+									<image id="soundLoop" src="img/loop-icon-empty.png">
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>	
+				<div id="about">
+					<button id="aboutButton">About</button>
+					<button id="howToButton">How To Use</button>
+					<button id="creditsButton">Credits</button>
+				</div>
+			</div>
+				
+			
+			<div id="buttons"></div>
+			<div id="players"></div>
+			
+			<div id="songPlayer" class="audioPlayer"></div>
+			<div id="ambiencePlayer" class="audioPlayer"></div>
+			<div id="soundPlayer" class="audioPlayer"></div>
+			
+			<div id="aboutModal" class="modal">
+				<div class="modalContent">
+					<div id="aboutCloseIcon" class="closeIcon"></div>
+					<h2>About</h2>
+					<p>Tabletop Music Manager is a tool designed for Dungeon Masters to streamline audio management during tabletop sessions. TMM uses the YouTube API in order to stream audio from videos directly, allowing users to ignore the clunkiness of having tens of tabs open during your campaign. A Dungeon Master's first priority should be managing his players, not his music.</p>
+					<p>TMM was inspired by the online web app RPG Ambience which is a music management tool that is no longer being maintained. It used audio files in order to service its user, whilst TMM streams music and ambience from YouTube directly </p>
+					<p>This project and site was created for the dual purpose of both being a tool for Dungeon Masters, as well as a resume piece for its creator. Any feedback is welcome.</p>
+					<img src="img/blue-landscape.jpg">
+					<h6>Image Credit to <span class="creditLink">floydierCG</span> on DeviantArt</h6>
+				</div>
+			</div>
+			
+			<div id="howToModal" class="modal">
+				<div class="modalContent">
+					<div id="howToCloseIcon" class="closeIcon"></div>
+					<h2>How To Use</h2>
+					<p>Use the New button to create new tracks, each representing a different video on YouTube. Each track has a name, a code, a Type, and a subType. The code is a series of digits and numbers listed in the url of the YouTube video</p>
+					<img src="img/youtube-link-sample.jpg" class="youtubeLinkSample">
+					<p>You can use the Sound Mixer in order to manage the volume of your tracks. The cross symbol will fade the track out, the middle icon toggles the video playing, and the loop icon will enable looping on the track</p>
+					<p>Use the save and loading buttons to save your data to your computer, or load it onto the website</p>
+					<img src="img/mixer-sample.png" class="modalImage">
+				</div>
+			</div>
+			
+			<div id="creditsModal" class="modal">
+				<div class="modalContent">
+					<div id="creditsCloseIcon" class="closeIcon"></div>
+					<h2>Credits</h2>
+					<p>Design: <a href="../index.html">Ethan King</a></p>
+					<p>Programming: <a href="../index.html">Ethan King</a></p>
+				</div>
+			</div>
+		</div>
+		
+
+		
+	<script src="js/javascript.js"></script>
+	</body>
+</html>
